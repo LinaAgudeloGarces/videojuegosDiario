@@ -953,7 +953,7 @@ MonoBehaviour:
   moveSpeed: 3
   rb: {fileID: 1110559161}
   animator2D: {fileID: 1110559163}
-  attackDamage: 30
+  attackDamage: 50
   attackSpeed: 0.5
 --- !u!212 &1110559159
 SpriteRenderer:
