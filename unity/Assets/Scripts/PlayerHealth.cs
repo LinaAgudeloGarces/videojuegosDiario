@@ -6,9 +6,11 @@ public class PlayerHealth : MonoBehaviour
 {
     public float health = 0f;
     public float maxHealth = 100f;
+    public PlayerHelathUI playerHealthui;
     private void Start()
     {
         health = maxHealth;
+        playerHealthui.setMaxHealth((int)maxHealth);
     }
     internal void UpdateHealth(float mod)
     {
@@ -19,12 +21,9 @@ public class PlayerHealth : MonoBehaviour
         } else if (health <= 0)
         {
             health = 0f;
-            Debug.Log("Player respawn");
+            Debug.Log("Player dead");
+            gameObject.SetActive(false);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerHealthui.setHealth((int)health);
     }
 }
