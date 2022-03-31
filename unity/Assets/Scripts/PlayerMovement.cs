@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 3f;
     public Rigidbody2D rb;
     public Animator animator2D;
+    public float attackDamage = 50f;
+    public float attackSpeed = .5f;
+    private bool isAttacking = false;
+    private float canAttack;
 
     Vector2 movement;
     void Update()
@@ -17,10 +21,36 @@ public class PlayerMovement : MonoBehaviour
         animator2D.SetFloat("Horizontal", movement.x);
         animator2D.SetFloat("Vertical", movement.y);
         animator2D.SetFloat("speed", movement.sqrMagnitude);
+
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            isAttacking = true;
+        } else
+        {
+            isAttacking = false;
+        }
     }
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if ((attackSpeed <= canAttack) && isAttacking)
+            {
+                collision.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-attackDamage);
+                canAttack = 0f;
+            }
+            else
+            {
+                canAttack += Time.deltaTime;
+            }
+        }
+    }
+
 
 }
