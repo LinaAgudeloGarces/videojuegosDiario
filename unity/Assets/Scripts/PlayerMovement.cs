@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         animator2D.SetFloat("Vertical", movement.y);
         animator2D.SetFloat("speed", movement.sqrMagnitude);
 
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetButtonUp("Fire1"))
         {
             isAttacking = true;
         } else
