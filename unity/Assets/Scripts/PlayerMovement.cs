@@ -20,14 +20,16 @@ public class PlayerMovement : MonoBehaviour
 
         animator2D.SetFloat("Horizontal", movement.x);
         animator2D.SetFloat("Vertical", movement.y);
-        animator2D.SetFloat("speed", movement.sqrMagnitude);
+        animator2D.SetFloat("Speed", movement.sqrMagnitude);
 
         if (Input.GetButtonUp("Fire1"))
         {
             isAttacking = true;
+            animator2D.SetBool("Attacking", true);
         } else
         {
             isAttacking = false;
+            animator2D.SetBool("Attacking", false);
         }
     }
     void FixedUpdate()
