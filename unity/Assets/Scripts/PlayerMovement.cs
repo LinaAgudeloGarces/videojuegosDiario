@@ -15,28 +15,32 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     void Update()
     {
+        
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        animator2D.SetFloat("Horizontal", movement.x);
-        animator2D.SetFloat("Vertical", movement.y);
-        animator2D.SetFloat("Speed", movement.sqrMagnitude);
-
+        animator2D.SetFloat("Speed", movement.normalized.sqrMagnitude);
+        if (movement.sqrMagnitude > 0)
+        {
+            animator2D.SetFloat("Horizontal", movement.x);
+            animator2D.SetFloat("Vertical", movement.y);
+        }
         if (Input.GetButtonUp("Fire1"))
         {
+            Debug.Log("Attack");
             isAttacking = true;
-            animator2D.SetBool("Attacking", true);
-        } else
+            animator2D.Play("Attack Tree");
+        }
+        else
         {
             isAttacking = false;
-            animator2D.SetBool("Attacking", false);
         }
     }
     void FixedUpdate()
     {
+        
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+ 
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
 
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((attackSpeed <= canAttack) && isAttacking)
             {
+                Debug.Log("Attacked Enemy");
                 collision.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-attackDamage);
                 canAttack = 0f;
             }

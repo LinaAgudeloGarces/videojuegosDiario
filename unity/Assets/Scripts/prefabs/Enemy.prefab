@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21777441183652872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.409878, y: 2.966682, z: 0}
+  m_LocalPosition: {x: -13.454126, y: 7.351032, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,6 +104,7 @@ MonoBehaviour:
   moveSpeed: 2
   attackDamage: 10
   attackSpeed: 1
+  animator2D: {fileID: -7896250437222805274}
 --- !u!50 &21777441183652879
 Rigidbody2D:
   serializedVersion: 4
@@ -138,8 +139,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017339587, y: -0.034829278}
-  m_Size: {x: 0.16587901, y: 0.24588583}
+  m_Offset: {x: 0.014698426, y: -0.23346488}
+  m_Size: {x: 0.8707156, y: 0.9988677}
   m_Direction: 0
 --- !u!114 &21777441183652866
 MonoBehaviour:
@@ -165,7 +166,7 @@ Animator:
   m_GameObject: {fileID: 21777441183652872}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: beb8a9af97709a148beaaa484c7090c7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
