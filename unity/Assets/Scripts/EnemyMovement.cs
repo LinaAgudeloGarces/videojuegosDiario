@@ -45,8 +45,6 @@ public class EnemyMovement : MonoBehaviour
         {
             if(attackSpeed <= canAttack)
             {
-                //isAttacking = true;
-                //animator2D.SetBool("Attacking", isAttacking);
                 animator2D.Play("Attack Tree");
                 collision.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
                 canAttack = 0f;

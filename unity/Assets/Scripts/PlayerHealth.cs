@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         } else if (health <= 0)
         {
             health = 0f;
-            Debug.Log("Player dead");
+            //Debug.Log("Player dead");
             gameObject.SetActive(false);
         }
         playerHealthui.setHealth((int)health);

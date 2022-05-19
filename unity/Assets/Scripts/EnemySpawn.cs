@@ -6,7 +6,7 @@ public class EnemySpawn : MonoBehaviour
 {
     public PolygonCollider2D polygonCollider;
     public GameObject enemy;
-    public int numberRandomPositions = 10;
+    public int numberRandomPositions;
 
     void Start()
     {
@@ -21,8 +21,6 @@ public class EnemySpawn : MonoBehaviour
             Vector2 rndPointInside = polygonCollider.ClosestPoint(new Vector2(rndPoint2D.x, rndPoint2D.y));
             if (rndPointInside.x == rndPoint2D.x && rndPointInside.y == rndPoint2D.y)
             {
-                //GameObject rndCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                //enemy.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 enemy.transform.position = rndPoint2D;
                 Instantiate(enemy);
                 i++;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,13 +27,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            Debug.Log("Attack");
+            //Debug.Log("Attack");
             isAttacking = true;
             animator2D.Play("Attack Tree");
         }
         else
         {
             isAttacking = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
     void FixedUpdate()
@@ -48,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((attackSpeed <= canAttack) && isAttacking)
             {
-                Debug.Log("Attacked Enemy");
+                //Debug.Log("Attacked Enemy");
                 collision.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-attackDamage);
                 canAttack = 0f;
             }
