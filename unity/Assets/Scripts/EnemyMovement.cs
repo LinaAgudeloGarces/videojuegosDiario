@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     public float attackDamage = 10f;
     public float attackSpeed = 1f;
 
+    public Animator animator2D;
     private Rigidbody2D rb;
     private PlayerMovement player;
     private Vector3 directionToPlayer;
@@ -23,25 +24,19 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         moveEnemy();
+        
+
     }
 
     private void moveEnemy()
     {
         directionToPlayer = (player.transform.position - transform.position).normalized;
         rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * moveSpeed;
+        animator2D.SetFloat("Horizontal", rb.velocity.x);
+        animator2D.SetFloat("Vertical", rb.velocity.y);
+        animator2D.SetFloat("Speed", rb.velocity.normalized.sqrMagnitude);
     }
 
-    private void LateUpdate()
-    {
-        if(rb.velocity.x > 0)
-        {
-            transform.localScale = new Vector3(localScale.x, localScale.y, localScale.z);
-        }
-        else if(rb.velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
-        }
-    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -50,13 +45,16 @@ public class EnemyMovement : MonoBehaviour
         {
             if(attackSpeed <= canAttack)
             {
+                animator2D.Play("Attack Tree");
                 collision.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
                 canAttack = 0f;
             }
             else
             {
+                
                 canAttack += Time.deltaTime;
             }
         }
     }
+
 }

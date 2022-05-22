@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
         {
             health = 0f;
             gameObject.SetActive(false);
-            Debug.Log("Enemy dead");
+            //Debug.Log("Enemy dead");
         }
     }
 }
