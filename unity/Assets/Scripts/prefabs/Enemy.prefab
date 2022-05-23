@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21777441183652872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.069747, y: 5.8585954, z: 0}
+  m_LocalPosition: {x: -6.7240696, y: 4.1460915, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
+  codigoGO: {fileID: 0}
 --- !u!95 &-7896250437222805274
 Animator:
   serializedVersion: 4

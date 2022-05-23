@@ -7,8 +7,13 @@ public class PlayerHealth : MonoBehaviour
     public float health = 0f;
     public float maxHealth = 100f;
     public PlayerHelathUI playerHealthui;
+
+
+    //Código de la victoria y GameOver
+    public gameOver codigoGO;
     private void Start()
     {
+        codigoGO = GameObject.Find("codigoGOV").GetComponent<gameOver>();
         health = maxHealth;
         playerHealthui.setMaxHealth((int)maxHealth);
     }
@@ -22,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         {
             health = 0f;
             //Debug.Log("Player dead");
+            codigoGO.muertoJ +=1;
             gameObject.SetActive(false);
         }
         playerHealthui.setHealth((int)health);
