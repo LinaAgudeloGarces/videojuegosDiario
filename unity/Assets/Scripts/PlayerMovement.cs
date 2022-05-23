@@ -17,15 +17,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal2");
+        movement.y = Input.GetAxisRaw("Vertical2");
         animator2D.SetFloat("Speed", movement.normalized.sqrMagnitude);
         if (movement.sqrMagnitude > 0)
         {
-            animator2D.SetFloat("Horizontal", movement.x);
-            animator2D.SetFloat("Vertical", movement.y);
+            animator2D.SetFloat("Horizontal2", movement.x);
+            animator2D.SetFloat("Vertical2", movement.y);
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire2"))
         {
             //Debug.Log("Attack");
             isAttacking = true;

@@ -7992,6 +7992,10 @@ PrefabInstance:
       value: mainMenuBehaviour, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 669742995608776706, guid: 88f3e0b7f09b13d4eba9cdd7cbcec00e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 669742995608776706, guid: 88f3e0b7f09b13d4eba9cdd7cbcec00e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
