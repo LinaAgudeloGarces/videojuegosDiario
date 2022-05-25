@@ -3,26 +3,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float attackDamage = 10f;
     public float attackSpeed = 1f;
-
     public Animator animator2D;
     private Rigidbody2D rb;
-    private PlayerMovement player;
+    private GameObject [] players;
+    private GameObject player;
+    private Vector3 directionToPlayer1;
+    private Vector3 directionToPlayer2;
     private Vector3 directionToPlayer;
     private Vector3 localScale;
     private float canAttack;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
+        
+        
         localScale = transform.localScale;
+
     }
     private void FixedUpdate()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log(players.Length);
+        if (players.Length == 2)
+        {
+            directionToPlayer1 = (players[0].transform.position - transform.position);
+            directionToPlayer2 = (players[1].transform.position - transform.position);
+
+
+            if (directionToPlayer1.sqrMagnitude < directionToPlayer2.sqrMagnitude)
+            {
+                player = players[0];
+            }
+            else if (directionToPlayer2.sqrMagnitude < directionToPlayer1.sqrMagnitude)
+            {
+                player = players[1];
+            }
+        }
+        
+        
         moveEnemy();
         
 

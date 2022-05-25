@@ -9,7 +9,15 @@ public class bonusHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().UpdateHealth(health);
+            try
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().UpdateHealth(health);
+            } catch
+            {
+                collision.gameObject.GetComponent<PlayerHealth2>().UpdateHealth(health);
+            }
+            
+            
             gameObject.SetActive(false);
         }
     }

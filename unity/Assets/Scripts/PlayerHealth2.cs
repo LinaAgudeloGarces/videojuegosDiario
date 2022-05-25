@@ -9,6 +9,7 @@ public class PlayerHealth2 : MonoBehaviour
     public PlayerHelathUI2 playerHealthui;
 
 
+
     //Código de la victoria y GameOver
     public gameOver codigoGO;
     private void Start()

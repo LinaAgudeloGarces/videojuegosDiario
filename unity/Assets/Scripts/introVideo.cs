@@ -49,5 +49,10 @@ public class introVideo : MonoBehaviour
         if(!videointro.isPlaying && pausa==0){
             SceneManager.LoadScene(nombreEscena);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

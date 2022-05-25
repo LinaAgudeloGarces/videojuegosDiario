@@ -12,6 +12,7 @@ public class gameOver : MonoBehaviour
     public int muertoJ;
     public GameObject pantallaGO;
     public GameObject pantallaVict;
+    public GameObject rocaMeta;
 
     //Para saber numero de jugadores
     public int numjugador;
@@ -27,10 +28,13 @@ public class gameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(muertos);
+        //Debug.Log(muertos);
         if(muertos==3){
             Debug.Log("Lo lograste");
-            pantallaVict.SetActive(true);
+            //pantallaVict.SetActive(true);
+            rocaMeta.SetActive(false);
+
+
         }
         //Aqui se podría comprobar lo de dos jugadores
         else if(numjugador==1){

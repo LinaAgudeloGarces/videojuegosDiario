@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
             //Debug.Log("Player dead");
             codigoGO.muertoJ +=1;
             gameObject.SetActive(false);
+            
         }
         playerHealthui.setHealth((int)health);
     }

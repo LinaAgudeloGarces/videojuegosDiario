@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
     void FixedUpdate()
@@ -54,7 +54,15 @@ public class PlayerMovement : MonoBehaviour
             if ((attackSpeed <= canAttack) && isAttacking)
             {
                 //Debug.Log("Attacked Enemy");
+                try
+                {
+
                 collision.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-attackDamage);
+                } catch
+                {
+                    Debug.Log("ataque boss");
+                    collision.gameObject.GetComponent<BossHealth>().UpdateHealth(-attackDamage);
+                }
                 canAttack = 0f;
             }
             else

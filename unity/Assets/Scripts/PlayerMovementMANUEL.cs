@@ -54,7 +54,16 @@ public class PlayerMovementMANUEL : MonoBehaviour
             if ((attackSpeed <= canAttack) && isAttacking)
             {
                 //Debug.Log("Attacked Enemy");
-                collision.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-attackDamage);
+                try
+                {
+
+                    collision.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-attackDamage);
+                }
+                catch
+                {
+                    Debug.Log("ataque boss");
+                    collision.gameObject.GetComponent<BossHealth>().UpdateHealth(-attackDamage);
+                }
                 canAttack = 0f;
             }
             else
