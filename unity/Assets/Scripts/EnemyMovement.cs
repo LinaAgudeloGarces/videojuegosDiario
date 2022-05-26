@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
 
     //Audio golpe
     public AudioSource audioGolpe;
+
     void Start()
     {
         audioGolpe = GameObject.Find("sonidoGolpeE").GetComponent<AudioSource>();
@@ -32,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
         players = GameObject.FindGameObjectsWithTag("Player");
         player = GameObject.FindGameObjectWithTag("Player");
         Debug.Log(players.Length);
@@ -52,7 +54,8 @@ public class EnemyMovement : MonoBehaviour
         }
         
         
-        moveEnemy();
+            moveEnemy();
+        
         
 
     }

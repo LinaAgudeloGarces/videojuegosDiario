@@ -13,6 +13,7 @@ public class gameOver : MonoBehaviour
     public GameObject pantallaGO;
     public GameObject pantallaVict;
     public GameObject rocaMeta;
+    public GameObject flecha;
 
     //Para saber numero de jugadores
     public int numjugador;
@@ -35,7 +36,7 @@ public class gameOver : MonoBehaviour
         //Debug.Log(muertos);
         if(muertos==3){
             Debug.Log("Lo lograste");
-            //pantallaVict.SetActive(true);
+            flecha.SetActive(true);
             rocaMeta.SetActive(false);
             audioVictoria.Play();
             muertos=0;
