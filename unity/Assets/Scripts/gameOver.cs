@@ -16,6 +16,10 @@ public class gameOver : MonoBehaviour
 
     //Para saber numero de jugadores
     public int numjugador;
+
+    //Sonido Victoria
+
+    public AudioSource audioVictoria;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,8 @@ public class gameOver : MonoBehaviour
             Debug.Log("Lo lograste");
             //pantallaVict.SetActive(true);
             rocaMeta.SetActive(false);
+            audioVictoria.Play();
+            muertos=0;
 
 
         }

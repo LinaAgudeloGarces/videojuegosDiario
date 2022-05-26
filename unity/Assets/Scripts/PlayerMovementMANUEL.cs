@@ -13,6 +13,9 @@ public class PlayerMovementMANUEL : MonoBehaviour
     private bool isAttacking = false;
     private float canAttack;
 
+    //Para audio
+    public AudioSource audioGolpe;
+
     Vector2 movement;
     void Update()
     {
@@ -27,6 +30,7 @@ public class PlayerMovementMANUEL : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
+            audioGolpe.Play();
             //Debug.Log("Attack");
             isAttacking = true;
             animator2D.Play("Attack Tree");

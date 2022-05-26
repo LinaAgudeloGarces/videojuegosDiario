@@ -8,9 +8,16 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     public PlayerHelathUI playerHealthui;
 
+    public Animator animator2D;
 
     //Código de la victoria y GameOver
     public gameOver codigoGO;
+
+    //Sonido de cuando muere
+    public AudioSource audioMuerte;
+    int num =0;
+
+
     private void Start()
     {
         codigoGO = GameObject.Find("codigoGOV").GetComponent<gameOver>();
@@ -25,12 +32,24 @@ public class PlayerHealth : MonoBehaviour
             health = maxHealth;
         } else if (health <= 0)
         {
+            if(num==0){
+                audioMuerte.Play();
+                animator2D.Play("luisa_morir");
+                num=1;
+                
+            }
+             //Para que espere hasta que acabe animación
+            else if(!audioMuerte.isPlaying && num==1){
+                Debug.Log("Se acabó");
+                codigoGO.muertoJ +=1;
+                gameObject.SetActive(false);
+            }
+
             health = 0f;
-            //Debug.Log("Player dead");
-            codigoGO.muertoJ +=1;
-            gameObject.SetActive(false);
+            
             
         }
         playerHealthui.setHealth((int)health);
     }
+   
 }

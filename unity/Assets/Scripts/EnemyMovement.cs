@@ -18,8 +18,12 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 directionToPlayer;
     private Vector3 localScale;
     private float canAttack;
+
+    //Audio golpe
+    public AudioSource audioGolpe;
     void Start()
     {
+        audioGolpe = GameObject.Find("sonidoGolpeE").GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         
         
@@ -70,7 +74,10 @@ public class EnemyMovement : MonoBehaviour
         {
             if(attackSpeed <= canAttack)
             {
+                
                 animator2D.Play("Attack Tree");
+                //Audio del golpe
+                audioGolpe.Play();
                 //Detecto cuál de los dos es
                 Debug.Log(collision.gameObject.name);
                 if(collision.gameObject.name=="Luisa")

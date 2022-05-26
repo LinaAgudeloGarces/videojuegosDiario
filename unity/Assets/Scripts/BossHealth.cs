@@ -8,7 +8,13 @@ public class BossHealth : MonoBehaviour
     public float maxHealth = 500f;
     public BossHealthUI bossUI;
     public GameObject pantallaVict;
+    
+    //Audio muertes
+    public AudioSource audioMuerte;
 
+    //Sonido Victoria
+
+    public AudioSource audioVictoria;
 
 
     void Start()
@@ -27,10 +33,14 @@ public class BossHealth : MonoBehaviour
         else if (health <= 0)
         {
             health = 0f;
+            //Se murió
+            
 
             gameObject.SetActive(false);
             bossUI.gameObject.SetActive(false);
             pantallaVict.SetActive(true);
+            Debug.Log("Ya sono");
+            audioVictoria.Play();
         }
         bossUI.setHealth((int)health);
     }
